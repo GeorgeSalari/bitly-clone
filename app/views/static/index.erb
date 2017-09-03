@@ -1,2 +1,21 @@
-<h1>Hello World</h1>
-<p>See Me in views/static/index.html.erb</p>
+<div id="table">
+  <table>
+    <tr id="table_header">
+      <td>No.</td>
+      <td>Long URL</td>
+      <td>Short URL</td>
+      <td class="click_count">Click Count</td>
+    </tr>
+    <% count = 1 %>
+    <% all_url = Url.order("click_count desc") %>
+    <% all_url.each do |url|%>
+    <tr>
+      <td><%= count %></td>
+      <td><%= "https://#{url.long_url}" %></td>
+      <td><a href="<%= "http://localhost:9393/#{url.short_url}" %>"><%= "http://localhost:9393/#{url.short_url}" %></a></td>
+      <td class="click_count"><%= url.click_count %></td>
+      <% count += 1 %>
+    </tr>
+    <% end %>
+  </table>
+</div>

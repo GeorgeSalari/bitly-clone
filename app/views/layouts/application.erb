@@ -1,8 +1,54 @@
 <html>
 	<head>
 		<title>Sinatra Framework</title>
+    <link rel="stylesheet" type="text/css" href="/css/application.css">
+    <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
+    <script src="/js/application.js"></script>
 	</head>
 	<body>
-		<%= yield %>
+    <div id="header">
+      <div id="nav">
+        <h1><a href=#>bitly</a></h1>
+        <ul>
+          <li><a href=#>TOUR</a></li>
+          <li><a href=#>ENTERPRISE</a></li>
+          <li><a href=#>RESOURSE</a></li>
+          <li><a href=#>BLOG</a></li>
+          <li><a href=#>ABOUT</a></li>
+        </ul>
+        <div id="button">
+          <a href=# id="login">LOGIN</a>
+          <a href=# id="sing_up">SING UP</a>
+        </div>
+      </div>
+      <div id="text">
+        <h2>THE LINK KNOWS ALL. SO CAN YOU.</h2>
+        <p>Measure your links with Bitly, the world's leading link management platform.</p>
+      </div>
+      <div id="form">
+        <form action="/urls" method="post">
+          <input id="input_text" type="text" name="long_url" placeholder="Paste a link to shorten it">
+          <input id="input_button" type="submit" value="SHORTEN">
+          <p id="message"><%= @message %></p>
+        </form>
+      </div>
+      <div id="button2">
+        <a href=# id="sing_up_for_free">SING UP FOR FREE</a>
+        <a href=# id="learn_more">or Learn more &#x2192;</a>
+      </div>
+    </div>
+    <div id="body">
+      <%= yield %>
+    </div>
+    <div id="counter">
+    </div>
+    <div id="trust_us">
+    </div>
+    <div id="coments">
+    </div>
+    <div id="resurse">
+    </div>
+    <div id="footer">
+    </div>
 	</body>
 </html>

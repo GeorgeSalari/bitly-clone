@@ -1,0 +1,185 @@
+html {
+  width:100%;
+}
+body {
+  font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin:0;
+  padding:0;
+  text-align:center;
+}
+
+div#header {
+  height: 560px;
+  background-image: url("/img/header_background.jpg");
+  background-size:cover;
+  }
+
+div#nav h1{
+  margin:0;
+  padding-top:1%;
+  display:inline-block;
+  font-family: 'Sofia';
+  font-size:40px;
+}
+
+div#header a {
+  text-decoration: none;
+  color:white;
+}
+
+div#nav ul {
+  list-style:none;
+  display:inline-block;
+}
+
+div#nav ul li {
+  display:inline-block;
+  padding-left:30px;
+  font-size:12px;
+}
+
+div#button {
+  display:inline-block;
+  margin-left:23%;
+}
+
+div#button a{
+  margin-left:20px;
+  border:1px solid white;
+  padding:15px 35px;
+  font-size:13px;
+  border-radius:3px;
+}
+
+div#button a#sing_up{
+  background-color:white;
+  color:#7BC1E4;
+}
+
+div#text{
+  color:white;
+}
+
+div#text h2{
+  margin:0;
+  font-family: "brandon-grotesque", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size:46px;
+  padding-top:8%;
+  line-height: 56px;
+  font-weight: 300;
+}
+
+div#text p {
+  margin:0;
+  font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: 19px;
+  font-size:19px;
+  padding:1%;
+  font-weight: 200;
+  letter-spacing: 1px;
+}
+
+div#form {
+  width: 52%;
+  display:inline-block;
+  margin: 3% 0 1% 0;
+}
+
+
+div#form input {
+  height:60px;
+}
+
+
+div#form input#input_text {
+  font-family: proxima-nova, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  width:100%;
+  padding-left:25px;
+  border-radius:3px 4px 4px 3px;
+  border: none;
+  cursor: auto;
+  font-size:17px;
+  font-weight:100;
+  letter-spacing: 1px;
+  float:left;
+}
+
+div#form input#input_button {
+  margin-right:0;
+  margin-left:-118.5px;
+  background-color:#EB6133;
+  font-size:12px;
+  color:white;
+  padding:0 30px;
+  border-radius:0 3px 3px 0;
+  border: none;
+}
+
+
+div#form input#input_text:focus, input.text:focus {
+  color: #ee6123;
+  outline: none;
+  background-color: #fef7f4;
+  box-shadow: 0 0 0 1px #EB6133cc, 0 0 4px 2px #EB613322, inset 0 1px 2px 0 #EB613322
+}
+
+div#header div#button2 {
+  clear:left;
+  height:80px;
+  line-height:80px;
+}
+
+div#header div#button2 a#sing_up_for_free {
+  border:1px solid white;
+  font-size:13px;
+  padding:20px 30px;
+  border-radius: 3px;
+  font-weight:100;
+  letter-spacing:1px;
+}
+
+div#header div#button2 a#learn_more {
+  padding-left:20px;
+  font-weight:100;
+  letter-spacing:1px;
+}
+
+div#header div#button2 a#learn_more:hover {
+  text-decoration:underline;
+}
+
+
+div#body div#table {
+  margin-top:50px;
+}
+
+div#body div#table table {
+  border-collapse:collapse;
+  margin:auto;
+}
+
+div#body div#table table, td, tr {
+  border:1px solid orange;
+  padding:5px 30px 5px 5px;
+}
+
+div#table table tr#table_header {
+  background-color:#EB6133;
+}
+
+div#body a {
+  text-decoration:none;
+  color:#EB6133;
+}
+
+table td.click_count {
+  margin:0;
+  padding:0 10px 0 10px;
+  text-align:center;;
+}
+
+p#message {
+  color:white;
+}
+
+
