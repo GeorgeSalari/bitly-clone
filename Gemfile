@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
-Ruby Version
-ruby "2.2.1"
+# Ruby Version
+ruby "2.3.4"
 
 # Adding Sinatra Drivers
 gem 'sinatra'
