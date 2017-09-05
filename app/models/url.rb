@@ -7,7 +7,7 @@ class Url < ActiveRecord::Base
 
   def shorten
     if self.short_url.nil?
-      self.short_url = "http://localhost:9393/#{SecureRandom.hex(4)}"
+      self.short_url = "#{SecureRandom.hex(4)}"
     end
   end
 
