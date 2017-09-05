@@ -36,25 +36,9 @@ class Url < ActiveRecord::Base
     end
   end
 
+  def update_click_count
+    self.update(click_count: "#{self.click_count + 1}")
+  end
+
 end
 
-
-# if params[:long_url].include? "https://www."
-#     url.long_url = params[:long_url]
-#   elsif params[:long_url].include? "https://"
-#     string = params[:long_url].partition("https://")
-#     if string[2] =~ /(\w+\.)+\w{2,}/
-#       url.long_url = "#{string[1]}www.#{string[2]}"
-#     else
-#       url.long_url = string[2]
-#     end
-#   elsif params[:long_url].include? "www."
-#     string = params[:long_url].partition("www.")
-#     if string[2] =~ /(\w+\.)+\w{2,}/
-#       url.long_url = "https://#{string[1]}#{string[2]}"
-#     else
-#       url.long_url = string[2]
-#     end
-#   else params[:long_url] != ""
-#     url.long_url = params[:long_url]
-#   end
