@@ -1,21 +1,68 @@
-<div id="table">
-  <table>
-    <tr id="table_header">
-      <td>No.</td>
-      <td>Long URL</td>
-      <td>Short URL</td>
-      <td class="click_count">Click Count</td>
-    </tr>
-    <% count = 1 %>
-    <% all_url = Url.order("click_count desc") %>
-    <% all_url.each do |url|%>
-    <tr>
-      <td><%= count %></td>
-      <td><%= "https://#{url.long_url}" %></td>
-      <td><a href="<%= "http://localhost:9393/#{url.short_url}" %>"><%= "http://localhost:9393/#{url.short_url}" %></a></td>
-      <td class="click_count"><%= url.click_count %></td>
-      <% count += 1 %>
-    </tr>
-    <% end %>
-  </table>
+<div id="header">
+  <div id="nav">
+    <h1><a href="/">bitly</a></h1>
+    <ul>
+      <li><a href=#>TOUR</a></li>
+      <li><a href=#>ENTERPRISE</a></li>
+      <li><a href=#>RESOURSE</a></li>
+      <li><a href=#>BLOG</a></li>
+      <li><a href=#>ABOUT</a></li>
+    </ul>
+    <div id="button">
+      <a href="/sign_in" id="login">LOGIN</a>
+      <a href="/sign_up" id="sign_up">SIGN UP</a>
+    </div>
+  </div>
+  <div id="text">
+    <h2>THE LINK KNOWS ALL. SO CAN YOU.</h2>
+    <p>Measure your links with Bitly, the world's leading link management platform.</p>
+  </div>
+  <div id="form">
+    <form action="/urls" method="post" id="main_form">
+      <input id="input_text" type="text" name="long_url" placeholder="Paste a link to shorten it">
+      <input id="input_button" type="submit" value="SHORTEN">
+      <p id="message"><%= @message %></p>
+    </form>
+  </div>
+  <div id="button2">
+    <a href="/sign_in" id="sign_up_for_free">SIGN UP FOR FREE</a>
+    <a href=# id="learn_more">or Learn more &#x2192;</a>
+  </div>
+</div>
+<div id="body">
+  <div id="table">
+    <table>
+      <thead>
+        <tr id="table_header">
+          <td>No.</td>
+          <td>Long URL</td>
+          <td>Short URL</td>
+          <td class="click_count">Click Count</td>
+        </tr>
+      </thead>
+      <tbody>
+        <% count = 1 %>
+        <% all_url = Url.order("click_count desc") %>
+        <% all_url.each do |url|%>
+        <tr id="content">
+          <td><%= count %></td>
+          <td><%= "#{url.long_url}" %></td>
+          <td><a href="<%= "#{url.short_url}" %>"><%= "#{url.short_url}" %></a></td>
+          <td class="click_count"><%= url.click_count %></td>
+          <% count += 1 %>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div id="counter">
+</div>
+<div id="trust_us">
+</div>
+<div id="coments">
+</div>
+<div id="resurse">
+</div>
+<div id="footer">
 </div>
