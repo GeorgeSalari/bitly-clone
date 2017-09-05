@@ -15,7 +15,7 @@ function hide_paragraph(){
 }
 
 document.addEventListener('DOMContentLoaded', function(){
-  var button = document.getElementById('sing_up_for_free')
+  var button = document.getElementById('sign_up_for_free')
   var button_submit = document.getElementById('input_button')
   var text_message = document.getElementById('message').innerHTML
   var login_buttons = document.getElementById('button').children
@@ -33,8 +33,8 @@ document.addEventListener('DOMContentLoaded', function(){
       success: function(data) {
         parsed_data = JSON.parse(data);
         var position = form[0].children.length;
-        if (parsed_data.message){
-          alert(parsed_data.message);
+        if (!parsed_data.id){
+          alert(parsed_data.long_url[0]);
         } else {
           $('tbody').append('\
             <tr id="content">\
