@@ -8,7 +8,7 @@ end
 
 get '/:short_url' do
   # redirect to long url
-  url = Url.find_by(short_url: "http://localhost:9393/#{params[:short_url]}")
+  url = Url.find_by(short_url: "#{params[:short_url]}")
   url.update_click_count
   redirect "#{url.long_url}"
 end
