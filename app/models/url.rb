@@ -25,25 +25,37 @@ class Url < ActiveRecord::Base
   end
 
   def check_long_url
-    if !self.long_url.include? "https://"
-      if !self.long_url.include? "www."
-        if self.long_url =~ /(\w+\.)+\w{2,}/
-          self.long_url = "https://www.#{self.long_url}"
+    if (!self.long_url.include? "https://") || (!self.long_url.include? "http://")
+      byebug
+      if (!self.long_url.include? "http://")
+        if !self.long_url.include? "www."
+          if self.long_url =~ /(\w+\.)+\w{2,}/
+            self.long_url = "https://www.#{self.long_url}"
+          end
+        else
+          string = self.long_url.partition("www.")
+          if string[2] =~ /(\w+\.)+\w{2,}/
+            self.long_url = "https://#{self.long_url}"
+          else
+            self.long_url = string[2]
+          end
         end
       else
-        string = self.long_url.partition("www.")
+        string = self.long_url.partition("http://")
         if string[2] =~ /(\w+\.)+\w{2,}/
-          self.long_url = "https://#{self.long_url}"
+          self.long_url
         else
           self.long_url = string[2]
         end
       end
     else
-      string = self.long_url.partition("https://")
-      if string[2].include? "www."
-        string1 = string[2].partition("www.")
-        if (string1[2] =~ /(\w+\.)+\w{2,}/) == nil
-          self.long_url = string1[2]
+      if self.long_url.include? "https://"
+        string = self.long_url.partition("https://")
+        if string[2].include? "www."
+          string1 = string[2].partition("www.")
+          if (string1[2] =~ /(\w+\.)+\w{2,}/) == nil
+            self.long_url = string1[2]
+          end
         end
       end
     end
