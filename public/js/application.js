@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function(){
           <tr id="content">\
             <td>' + (position + 1) + '</td>\
             <td>' + parsed_data.long_url + '</td>\
-            <td><a href="https://bitly-clone-my-first-work.herokuapp.com/' + parsed_data.short_url + ' ">' + parsed_data.short_url + '</a></td>\
+            <td><a href="' + parsed_data.short_url + ' "> https://bitly-clone-my-first-work.herokuapp.com/' + parsed_data.short_url + '</a></td>\
             <td class="click_count">' + parsed_data.click_count + '</td>\
           </tr>'
         );
