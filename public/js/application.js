@@ -29,7 +29,9 @@ document.addEventListener('DOMContentLoaded', function(){
     method: "post",
     data: $(this).serialize(),
     success: function(data) {
+      console.log(data);
       parsed_data = JSON.parse(data);
+      console.log(parsed_data);
       var position = form[0].children.length;
       if (!parsed_data.id){
         alert(parsed_data.long_url[0]);
@@ -38,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function(){
           <tr id="content">\
             <td>' + (position + 1) + '</td>\
             <td>' + parsed_data.long_url + '</td>\
-            <td><a href=" ' + parsed_data.short_url + ' ">' + parsed_data.short_url + '</a></td>\
+            <td><a href="https://bitly-clone-my-first-work.herokuapp.com/' + parsed_data.short_url + ' ">' + parsed_data.short_url + '</a></td>\
             <td class="click_count">' + parsed_data.click_count + '</td>\
           </tr>'
         );

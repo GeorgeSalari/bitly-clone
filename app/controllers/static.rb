@@ -23,5 +23,5 @@ post '/urls' do
 end
 
 post '/create_user' do
-  @params = params
+
 end
