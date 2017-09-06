@@ -1,13 +1,26 @@
 class Url < ActiveRecord::Base
 	# This is Sinatra! Remember to create a migration!
   validates :long_url, presence: true
-  before_save :shorten
+  before_create :shorten
   before_validation :check_long_url
   validates :long_url, uniqueness: true, format: {with: /(\w+\.)+\w{2,}/, message: "Is not a valid url"}
 
+  def repeat
+    random_short = "#{SecureRandom.hex(4)}"
+    @unique_short = random_short
+    if Url.where(short_url: @unique_short).count > 0
+      @unique_short = ""
+    end
+  end
+
   def shorten
     if self.short_url.nil?
-      self.short_url = "#{SecureRandom.hex(4)}"
+      while @unique_short == nil || @unique_short == ""
+        repeat
+        if @unique_short != ""
+          self.short_url = @unique_short
+        end
+      end
     end
   end
 
@@ -37,7 +50,7 @@ class Url < ActiveRecord::Base
   end
 
   def update_click_count
-    self.update(click_count: "#{self.click_count + 1}")
+    self.update(click_count: self.click_count + 1)
   end
 
 end
