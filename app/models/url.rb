@@ -1,7 +1,7 @@
 class Url < ActiveRecord::Base
 	# This is Sinatra! Remember to create a migration!
   validates :long_url, presence: true
-  before_create :shorten
+  before_save :shorten
   before_validation :check_long_url
   validates :long_url, uniqueness: true, format: {with: /(\w+\.)+\w{2,}/, message: "Is not a valid url"}
 
@@ -26,18 +26,26 @@ class Url < ActiveRecord::Base
 
   def check_long_url
     if (!self.long_url.include? "https://") || (!self.long_url.include? "http://")
-      byebug
       if (!self.long_url.include? "http://")
         if !self.long_url.include? "www."
           if self.long_url =~ /(\w+\.)+\w{2,}/
             self.long_url = "https://www.#{self.long_url}"
           end
         else
-          string = self.long_url.partition("www.")
-          if string[2] =~ /(\w+\.)+\w{2,}/
-            self.long_url = "https://#{self.long_url}"
+          if !(self.long_url.include? "https://")
+            string = self.long_url.partition("www.")
+            if string[2] =~ /(\w+\.)+\w{2,}/
+              self.long_url = "https://#{self.long_url}"
+            else
+              self.long_url = string[2]
+            end
           else
-            self.long_url = string[2]
+            string = self.long_url.partition("www.")
+            if string[2] =~ /(\w+\.)+\w{2,}/
+              self.long_url = "#{self.long_url}"
+            else
+              self.long_url = string[2]
+            end
           end
         end
       else

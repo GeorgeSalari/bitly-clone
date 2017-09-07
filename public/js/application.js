@@ -29,9 +29,7 @@ document.addEventListener('DOMContentLoaded', function(){
     method: "post",
     data: $(this).serialize(),
     success: function(data) {
-      console.log(data);
       parsed_data = JSON.parse(data);
-      console.log(parsed_data);
       var position = form[0].children.length;
       if (!parsed_data.id){
         alert(parsed_data.long_url[0]);
